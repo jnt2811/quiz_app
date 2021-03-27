@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/layouts/MainPage.dart';
-import 'package:quiz_app/layouts/SignupPage.dart';
-import 'package:quiz_app/layouts/loginPage.dart';
+import 'package:quiz_app/layouts/auths/SignupPage.dart';
+import 'package:quiz_app/layouts/auths/loginPage.dart';
+import 'package:quiz_app/layouts/question/NewQuestion.dart';
+import 'package:quiz_app/layouts/questionnaire/NewQuestionnaire.dart';
 import 'package:quiz_app/utils/myColors.dart';
 
 void main() {
@@ -13,21 +15,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Quiz App',
+      title: 'Quizzie',
       theme: ThemeData(
-        buttonTheme: ButtonThemeData(
-          buttonColor: primaryColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-        ),
         iconTheme: IconThemeData(
           color: primaryColor,
         ),
         primarySwatch: primarySwatchColor,
         primaryColor: primaryColor,
-        scaffoldBackgroundColor: primaryBgColor,
-        backgroundColor: primaryBgColor,
         appBarTheme: AppBarTheme(
           textTheme: TextTheme(
             headline6: TextStyle(
@@ -37,11 +31,12 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/login',
+      initialRoute: '/main',
       routes: {
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),
-        '/main': (context) => MainPage(),
+        '/main': (context) => MainPage(initIndex: 0),
+        '/newQuestionnaire': (context) => NewQuestionnaire(),
       },
     );
   }
