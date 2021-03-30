@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/layouts/MainPage.dart';
 import 'package:quiz_app/layouts/auths/SignupPage.dart';
 import 'package:quiz_app/layouts/auths/loginPage.dart';
-import 'package:quiz_app/layouts/question/NewQuestion.dart';
 import 'package:quiz_app/layouts/questionnaire/NewQuestionnaire.dart';
+import 'package:quiz_app/utils/bottomType.dart';
 import 'package:quiz_app/utils/myColors.dart';
 
 void main() {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignupPage(),
-        '/main': (context) => MainPage(initIndex: 0),
+        '/main': (context) => MainPage(initBody: BottomType.home),
         '/newQuestionnaire': (context) => NewQuestionnaire(),
       },
     );

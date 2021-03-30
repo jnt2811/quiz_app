@@ -5,6 +5,23 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Home Page"));
+    List<String> items = ["1", "2", "3"];
+
+    List<Widget> arr = [];
+
+    items.forEach((element) {
+      arr.add(Text(element));
+    });
+
+    return ListView(
+      children: [
+        SizedBox(
+          height: 50,
+        ),
+        Column(
+          children: arr,
+        )
+      ],
+    );
   }
 }

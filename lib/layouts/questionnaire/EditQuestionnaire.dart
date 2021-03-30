@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'package:quiz_app/layouts/MainPage.dart';
 import 'package:quiz_app/layouts/question/EditQuestion.dart';
 import 'package:quiz_app/layouts/question/NewQuestion.dart';
+import 'package:quiz_app/layouts/questionnaire/SingleQuestionnaire.dart';
 import 'package:quiz_app/models/Question.dart';
 import 'package:quiz_app/models/Questionnaire.dart';
+import 'package:quiz_app/utils/bottomType.dart';
 import 'package:quiz_app/utils/myColors.dart';
+import 'package:quiz_app/utils/slideRightRoute.dart';
 
 class EditQuestionnaire extends StatefulWidget {
   EditQuestionnaire({
@@ -27,11 +31,13 @@ class _EditQuestionnaireState extends State<EditQuestionnaire> {
         leading: Container(
           margin: EdgeInsets.only(left: 5.0),
           child: IconButton(
-            icon: Icon(Icons.book_outlined, size: 30),
+            icon: Icon(Icons.arrow_back_ios_rounded, size: 25),
             onPressed: () {
               Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => MainPage(initIndex: 2)),
+                SlideRightRoute(
+                  page: SingleQuestionnaire(questionnaire: this.widget.questionaire),
+                ),
                 (route) => false,
               );
             },
@@ -45,7 +51,11 @@ class _EditQuestionnaireState extends State<EditQuestionnaire> {
               onPressed: () {
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => MainPage(initIndex: 2)),
+                  MaterialPageRoute(
+                    builder: (context) => MainPage(
+                      initBody: BottomType.collection,
+                    ),
+                  ),
                   (route) => false,
                 );
               },
@@ -154,16 +164,17 @@ class _EditQuestionnaireState extends State<EditQuestionnaire> {
       child: ListTile(
         onTap: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => EditQuestion(
-                        question: question,
-                      )));
+            context,
+            MaterialPageRoute(
+              builder: (context) => EditQuestion(
+                question: question,
+              ),
+            ),
+          );
         },
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-          Radius.circular(10.0),
-        )),
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        ),
         title: Text(
           question.name,
           style: TextStyle(

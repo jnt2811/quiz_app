@@ -3,12 +3,16 @@ import 'package:quiz_app/layouts/bottoms/CollectionPage.dart';
 import 'package:quiz_app/layouts/bottoms/HomePage.dart';
 import 'package:quiz_app/layouts/bottoms/ProfilePage.dart';
 import 'package:quiz_app/layouts/bottoms/SearchPage.dart';
+import 'package:quiz_app/utils/bottomType.dart';
 import 'package:quiz_app/utils/myColors.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key, @required this.initIndex}) : super(key: key);
+  MainPage({
+    Key key,
+    @required this.initBody,
+  }) : super(key: key);
 
-  final int initIndex;
+  final BottomType initBody;
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -34,7 +38,23 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    currentIndex = this.widget.initIndex;
+
+    switch (this.widget.initBody) {
+      case BottomType.home:
+        currentIndex = 0;
+        break;
+      case BottomType.search:
+        currentIndex = 1;
+        break;
+      case BottomType.collection:
+        currentIndex = 2;
+        break;
+      case BottomType.profile:
+        currentIndex = 3;
+        break;
+      default:
+        currentIndex = 0;
+    }
   }
 
   @override
