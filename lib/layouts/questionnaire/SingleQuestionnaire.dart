@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:quiz_app/layouts/MainPage.dart';
+import 'package:quiz_app/layouts/ingame/AnswerQuestion.dart';
 import 'package:quiz_app/layouts/questionnaire/EditQuestionnaire.dart';
 import 'package:quiz_app/models/Questionnaire.dart';
 import 'package:quiz_app/utils/bottomType.dart';
@@ -66,9 +67,9 @@ class _SingleQuestionnaireState extends State<SingleQuestionnaire> {
       padding: EdgeInsets.all(20.0),
       children: [
         Text(
-          "Name: " + "Toan roi rac",
+          "Name: " + this.widget.questionnaire.name,
           style: TextStyle(
-            color: Colors.black,
+            color: primaryColor,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
@@ -93,7 +94,7 @@ class _SingleQuestionnaireState extends State<SingleQuestionnaire> {
         ),
         SizedBox(height: 20),
         Text(
-          "Topic: " + "Math",
+          "Topic: " + this.widget.questionnaire.topic,
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,
@@ -110,7 +111,7 @@ class _SingleQuestionnaireState extends State<SingleQuestionnaire> {
         ),
         SizedBox(height: 20),
         Text(
-          "Time Limit: " + "15" + " mins",
+          "Time Limit: " + this.widget.questionnaire.timeLimit.toString() + " mins",
           style: TextStyle(
             color: primaryColor,
             fontSize: 16,
@@ -139,12 +140,12 @@ class _SingleQuestionnaireState extends State<SingleQuestionnaire> {
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         onPressed: () {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => NewQuestion(questionaire: this.widget.questionaire),
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AnswerQuestion(questionnaire: this.widget.questionnaire),
+            ),
+          );
         },
         child: Text(
           "Start",
