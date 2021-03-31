@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:quiz_app/layouts/MainPage.dart';
-import 'package:quiz_app/layouts/ingame/AnswerQuestion.dart';
+import 'package:quiz_app/layouts/ingame/GameScreen.dart';
 import 'package:quiz_app/models/Questionnaire.dart';
 import 'package:quiz_app/utils/bottomType.dart';
 
@@ -9,9 +9,13 @@ class ResultPage extends StatefulWidget {
   ResultPage({
     Key key,
     @required this.questionnaire,
+    @required this.timeFinish,
+    @required this.score,
   }) : super(key: key);
 
   final Questionnaire questionnaire;
+  final int timeFinish;
+  final int score;
 
   @override
   _ResultPageState createState() => _ResultPageState();
@@ -43,7 +47,7 @@ class _ResultPageState extends State<ResultPage> {
             SizedBox(height: 10),
             Center(
               child: Text(
-                "100",
+                this.widget.score.toString(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 80,
@@ -54,7 +58,7 @@ class _ResultPageState extends State<ResultPage> {
             SizedBox(height: 20),
             Center(
               child: Text(
-                "Time Finish: " + "10" + " mins",
+                "Time Finish: ${this.widget.timeFinish} seconds",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 22,
@@ -71,7 +75,7 @@ class _ResultPageState extends State<ResultPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => AnswerQuestion(questionnaire: this.widget.questionnaire),
+                        builder: (context) => GameScreen(questionnaire: this.widget.questionnaire),
                       ),
                     );
                   },

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:quiz_app/layouts/MainPage.dart';
-import 'package:quiz_app/layouts/ingame/AnswerQuestion.dart';
+import 'package:quiz_app/layouts/ingame/GameScreen.dart';
 import 'package:quiz_app/layouts/questionnaire/EditQuestionnaire.dart';
 import 'package:quiz_app/models/Questionnaire.dart';
 import 'package:quiz_app/utils/bottomType.dart';
 import 'package:quiz_app/utils/myColors.dart';
-import 'package:quiz_app/utils/slideRightRoute.dart';
+import 'package:quiz_app/utils/slideDownRoute.dart';
 
 class SingleQuestionnaire extends StatefulWidget {
   SingleQuestionnaire({
@@ -33,7 +33,7 @@ class _SingleQuestionnaireState extends State<SingleQuestionnaire> {
             onPressed: () {
               Navigator.pushAndRemoveUntil(
                 context,
-                SlideRightRoute(
+                SlideDownRoute(
                   page: MainPage(initBody: BottomType.collection),
                 ),
                 (route) => false,
@@ -143,7 +143,7 @@ class _SingleQuestionnaireState extends State<SingleQuestionnaire> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AnswerQuestion(questionnaire: this.widget.questionnaire),
+              builder: (context) => GameScreen(questionnaire: this.widget.questionnaire),
             ),
           );
         },

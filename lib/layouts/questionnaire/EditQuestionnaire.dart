@@ -8,7 +8,7 @@ import 'package:quiz_app/models/Question.dart';
 import 'package:quiz_app/models/Questionnaire.dart';
 import 'package:quiz_app/utils/bottomType.dart';
 import 'package:quiz_app/utils/myColors.dart';
-import 'package:quiz_app/utils/slideRightRoute.dart';
+import 'package:quiz_app/utils/slideDownRoute.dart';
 
 class EditQuestionnaire extends StatefulWidget {
   EditQuestionnaire({
@@ -35,7 +35,7 @@ class _EditQuestionnaireState extends State<EditQuestionnaire> {
             onPressed: () {
               Navigator.pushAndRemoveUntil(
                 context,
-                SlideRightRoute(
+                SlideDownRoute(
                   page: SingleQuestionnaire(questionnaire: this.widget.questionaire),
                 ),
                 (route) => false,

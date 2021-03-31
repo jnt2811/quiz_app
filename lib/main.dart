@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/layouts/MainPage.dart';
 import 'package:quiz_app/layouts/auths/SignupPage.dart';
 import 'package:quiz_app/layouts/auths/loginPage.dart';
+import 'package:quiz_app/layouts/ingame/GameScreen.dart';
 import 'package:quiz_app/layouts/questionnaire/NewQuestionnaire.dart';
-
+import 'package:quiz_app/models/Questionnaire.dart';
 import 'package:quiz_app/utils/bottomType.dart';
 import 'package:quiz_app/utils/myColors.dart';
 
@@ -38,6 +39,16 @@ class MyApp extends StatelessWidget {
         '/signup': (context) => SignupPage(),
         '/main': (context) => MainPage(initBody: BottomType.home),
         '/newQuestionnaire': (context) => NewQuestionnaire(),
+        '/game': (context) => GameScreen(
+              questionnaire: Questionnaire(
+                timeLimit: 10,
+                topic: "Math",
+                name: "Toan roi rac",
+                desc: "Mon nay khoai phet!",
+                public: true,
+                id: 1,
+              ),
+            ),
       },
     );
   }
