@@ -88,9 +88,9 @@ class _SingleQuestionnaireState extends State<SingleQuestionnaire> {
             Icons.star,
             color: Colors.amber,
           ),
-          tapOnlyMode: false,
           onRatingUpdate: (value) {},
           itemSize: 20.0,
+          ignoreGestures: true,
         ),
         SizedBox(height: 20),
         Text(
